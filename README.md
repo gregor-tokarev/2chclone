@@ -1,14 +1,13 @@
 # 2chclone
 
-This project was created with [Better-T-Stack](https://github.com/AmanVarshney01/create-better-t-stack), a modern TypeScript stack that combines React, TanStack Router, and more.
+Next.js imageboard client for the 2ch API.
 
 ## Features
 
-- **TypeScript** - For type safety and improved developer experience
-- **TanStack Router** - File-based routing with full type safety
-- **TailwindCSS** - Utility-first CSS for rapid UI development
-- **shadcn/ui** - Reusable UI components
-- **Turborepo** - Optimized monorepo build system
+- **Next.js App Router** - SSR, routing, and deployment-ready build pipeline
+- **TypeScript** - Type-safe app and API models
+- **Tailwind CSS** - Custom UI styling
+- **2ch API integration** - Board, thread, posting, and moderation flows
 
 ## Getting Started
 
@@ -24,19 +23,22 @@ Then, run the development server:
 npm run dev
 ```
 
-Open [http://localhost:3001](http://localhost:3001) in your browser to see the web application.
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the app.
 
 ## Project Structure
 
 ```
 2chclone/
-├── apps/
-│   ├── web/         # Frontend application (React + TanStack Router)
+├── src/            # Next.js application code
+├── public/         # Static assets
+├── app/            # Older nested Next.js workspace copy
+├── apps/           # Older monorepo app workspace
+├── packages/       # Older shared package workspace
 ```
 
 ## Available Scripts
 
-- `npm run dev`: Start all applications in development mode
-- `npm run build`: Build all applications
-- `npm run dev:web`: Start only the web application
-- `npm run check-types`: Check TypeScript types across all apps
+- `npm run dev`: Start the Next.js development server
+- `npm run build`: Create a production build
+- `npm run start`: Start the production server
+- `npm run lint`: Run ESLint

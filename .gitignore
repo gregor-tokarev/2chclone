@@ -6,6 +6,8 @@ node_modules
 # Build outputs
 dist
 build
+.next
+out
 *.tsbuildinfo
 
 # Environment variables
@@ -48,3 +50,4 @@ coverage
 .cache
 tmp
 temp
+next-env.d.ts
