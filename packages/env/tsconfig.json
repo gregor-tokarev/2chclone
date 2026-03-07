@@ -1,0 +1,3 @@
+{
+  "extends": "@2chclone/config/tsconfig.base.json"
+}
