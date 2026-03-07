@@ -15,13 +15,13 @@ This project was created with [Better-T-Stack](https://github.com/AmanVarshney01
 First, install the dependencies:
 
 ```bash
-bun install
+npm install
 ```
 
 Then, run the development server:
 
 ```bash
-bun run dev
+npm run dev
 ```
 
 Open [http://localhost:3001](http://localhost:3001) in your browser to see the web application.
@@ -36,7 +36,7 @@ Open [http://localhost:3001](http://localhost:3001) in your browser to see the w
 
 ## Available Scripts
 
-- `bun run dev`: Start all applications in development mode
-- `bun run build`: Build all applications
-- `bun run dev:web`: Start only the web application
-- `bun run check-types`: Check TypeScript types across all apps
+- `npm run dev`: Start all applications in development mode
+- `npm run build`: Build all applications
+- `npm run dev:web`: Start only the web application
+- `npm run check-types`: Check TypeScript types across all apps
