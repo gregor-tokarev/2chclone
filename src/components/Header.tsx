@@ -18,10 +18,10 @@ export default function Header() {
             href="/"
             className="group flex items-center gap-2.5 transition-all"
           >
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent font-display text-sm font-bold text-bg-primary transition-transform group-hover:scale-105">
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent font-display text-base font-normal text-bg-primary transition-transform group-hover:scale-105">
               2
             </div>
-            <span className="font-display text-lg font-semibold tracking-tight text-text-primary">
+            <span className="font-display text-xl font-normal tracking-tight text-text-primary">
               dvач
             </span>
           </Link>
@@ -30,7 +30,7 @@ export default function Header() {
             <nav className="ml-4 hidden items-center gap-1 sm:flex">
               <Link
                 href="/"
-                className="rounded-md px-3 py-1.5 text-sm font-medium text-text-secondary transition-colors hover:bg-bg-tertiary hover:text-text-primary"
+                className="rounded-md px-3 py-1.5 text-base font-normal text-text-secondary transition-colors hover:bg-bg-tertiary hover:text-text-primary"
               >
                 Boards
               </Link>
@@ -39,7 +39,7 @@ export default function Header() {
                   <span className="text-text-muted">/</span>
                   <Link
                     href={`/${arr.slice(0, i + 1).join("/")}`}
-                    className="rounded-md px-2 py-1.5 text-sm font-medium text-text-secondary transition-colors hover:bg-bg-tertiary hover:text-text-primary"
+                    className="rounded-md px-2 py-1.5 text-base font-normal text-text-secondary transition-colors hover:bg-bg-tertiary hover:text-text-primary"
                   >
                     {segment}
                   </Link>
@@ -60,7 +60,7 @@ export default function Header() {
               <rect x="2" y="4" width="20" height="16" rx="2" />
               <path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01M8 12h.01M12 12h.01M16 12h.01M7 16h10" />
             </svg>
-            <kbd className="rounded border border-border-primary/60 bg-bg-secondary/80 px-1.5 py-0.5 font-mono text-[10px] text-text-muted">?</kbd>
+            <kbd className="rounded border border-border-primary/60 bg-bg-secondary/80 px-1.5 py-0.5 font-mono text-xs text-text-muted">?</kbd>
           </button>
           <Link
             href="/settings"

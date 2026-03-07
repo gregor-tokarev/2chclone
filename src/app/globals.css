@@ -11,8 +11,8 @@
   --color-border-primary: #1e1e2e;
   --color-border-accent: #f59e0b;
   --color-text-primary: #e8e6e3;
-  --color-text-secondary: #8a8a9a;
-  --color-text-muted: #555566;
+  --color-text-secondary: #a0a0b4;
+  --color-text-muted: #7c7c90;
   --color-accent: #f59e0b;
   --color-accent-hover: #fbbf24;
   --color-accent-muted: rgba(245, 158, 11, 0.15);
@@ -23,7 +23,7 @@
   --color-reply-link: #ff6600;
   --color-op-badge: #f59e0b;
   --color-sticky-badge: #ef4444;
-  --color-closed-badge: #6b7280;
+  --color-closed-badge: #8b92a0;
   --font-display: 'Unbounded', sans-serif;
   --font-body: 'Manrope', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
@@ -72,7 +72,7 @@ body {
 .post-comment a {
   color: var(--color-reply-link);
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 400;
   transition: color 0.15s;
 }
 
@@ -101,7 +101,7 @@ body {
 
 .post-comment strong, .post-comment b {
   color: #fff;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .post-comment em, .post-comment i {

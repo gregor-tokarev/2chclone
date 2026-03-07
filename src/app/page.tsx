@@ -55,13 +55,13 @@ export default async function HomePage() {
           <rect width="100%" height="100%" fill="url(#hero-grid)" />
         </svg>
         <div className="relative">
-          <h1 className="font-display text-4xl font-bold tracking-tight text-text-primary sm:text-5xl">
+          <h1 className="font-display text-4xl font-normal tracking-tight text-text-primary sm:text-5xl">
             dvач
           </h1>
-          <p className="mt-3 max-w-lg text-lg text-text-secondary/80">
+          <p className="mt-3 max-w-lg text-xl text-text-secondary">
             Modern imageboard experience. Fast, clean, and beautiful.
           </p>
-          <div className="mt-6 flex items-center gap-4 text-sm text-text-muted">
+          <div className="mt-6 flex items-center gap-4 text-base text-text-muted">
             <span className="flex items-center gap-1.5">
               <span className="h-2 w-2 rounded-full bg-success animate-pulse" />
               {boards.length} boards online
@@ -84,10 +84,10 @@ export default async function HomePage() {
       {sortedCategories.map(([category, categoryBoards]) => (
         <section key={category} className="space-y-4">
           <div className="flex items-center gap-3">
-            <h2 className="font-display text-xl font-semibold text-text-primary">
+            <h2 className="font-display text-2xl font-normal text-text-primary">
               {category}
             </h2>
-            <span className="rounded-full bg-bg-tertiary px-2.5 py-0.5 text-xs font-medium text-text-muted">
+            <span className="rounded-full bg-bg-tertiary px-2.5 py-0.5 text-sm font-normal text-text-muted">
               {categoryBoards.length}
             </span>
             <div className="h-px flex-1 bg-border-primary" />
@@ -107,14 +107,14 @@ export default async function HomePage() {
                 >
                   <div className="flex items-start justify-between">
                     <div className="flex items-center gap-3">
-                      <div className="flex items-center justify-center rounded-lg bg-accent/10 px-2 py-1.5 font-display text-sm font-bold text-accent transition-transform group-hover:scale-105">
+                      <div className="flex items-center justify-center rounded-lg bg-accent/10 px-2 py-1.5 font-display text-base font-normal text-accent transition-transform group-hover:scale-105">
                         /{board.id}/
                       </div>
                       <div>
-                        <h3 className="font-semibold text-text-primary transition-colors group-hover:text-accent">
+                        <h3 className="font-normal text-base text-text-primary transition-colors group-hover:text-accent">
                           {board.name}
                         </h3>
-                        <p className="mt-0.5 text-xs text-text-muted line-clamp-2">
+                        <p className="mt-0.5 text-sm text-text-muted line-clamp-2">
                           {stripHtml(board.info_outer || board.info)}
                         </p>
                       </div>
@@ -123,26 +123,26 @@ export default async function HomePage() {
 
                   <div className="mt-3 flex flex-wrap gap-2">
                     {board.enable_posting && (
-                      <span className="rounded bg-bg-tertiary px-1.5 py-0.5 text-[10px] font-medium text-text-muted">
+                      <span className="rounded bg-bg-tertiary px-1.5 py-0.5 text-xs font-normal text-text-muted">
                         POSTING
                       </span>
                     )}
                     {board.enable_likes && (
-                      <span className="rounded bg-bg-tertiary px-1.5 py-0.5 text-[10px] font-medium text-text-muted">
+                      <span className="rounded bg-bg-tertiary px-1.5 py-0.5 text-xs font-normal text-text-muted">
                         LIKES
                       </span>
                     )}
                     {board.enable_thread_tags && (
-                      <span className="rounded bg-bg-tertiary px-1.5 py-0.5 text-[10px] font-medium text-text-muted">
+                      <span className="rounded bg-bg-tertiary px-1.5 py-0.5 text-xs font-normal text-text-muted">
                         TAGS
                       </span>
                     )}
                     {board.enable_names && (
-                      <span className="rounded bg-bg-tertiary px-1.5 py-0.5 text-[10px] font-medium text-text-muted">
+                      <span className="rounded bg-bg-tertiary px-1.5 py-0.5 text-xs font-normal text-text-muted">
                         NAMES
                       </span>
                     )}
-                    <span className="rounded bg-bg-tertiary px-1.5 py-0.5 text-[10px] font-medium text-text-muted">
+                    <span className="rounded bg-bg-tertiary px-1.5 py-0.5 text-xs font-normal text-text-muted">
                       BL:{board.bump_limit}
                     </span>
                   </div>

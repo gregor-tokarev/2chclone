@@ -219,7 +219,7 @@ export default function BoardPageClient({ boardInfo, initialThreads, boardId }: 
               setSearchQuery(e.target.value);
               setSelectedIndex(-1);
             }}
-            className="w-full rounded-lg border border-border-primary bg-bg-input pl-10 pr-3 py-2 text-sm text-text-primary placeholder:text-text-muted focus:border-accent/40 focus:outline-none focus:ring-1 focus:ring-accent/20 transition-all"
+            className="w-full rounded-lg border border-border-primary bg-bg-input pl-10 pr-3 py-2 text-base text-text-primary placeholder:text-text-muted focus:border-accent/40 focus:outline-none focus:ring-1 focus:ring-accent/20 transition-all"
           />
         </div>
 
@@ -232,7 +232,7 @@ export default function BoardPageClient({ boardInfo, initialThreads, boardId }: 
                 setSortMode(mode);
                 setSelectedIndex(-1);
               }}
-              className={`rounded-md px-3 py-1.5 text-xs font-medium transition-all ${
+              className={`rounded-md px-3 py-1.5 text-sm font-normal transition-all ${
                 sortMode === mode
                   ? "bg-accent/10 text-accent"
                   : "text-text-secondary hover:text-text-primary"
@@ -276,17 +276,17 @@ export default function BoardPageClient({ boardInfo, initialThreads, boardId }: 
       </div>
 
       {/* Thread count + shortcut hints */}
-      <div className="flex items-center justify-between text-xs text-text-muted">
+      <div className="flex items-center justify-between text-sm text-text-muted">
         <span>
           {sortedThreads.length} threads
           {searchQuery && ` matching "${searchQuery}"`}
         </span>
         <span className="hidden items-center gap-2 sm:flex">
-          <kbd className="rounded border border-border-primary/60 bg-bg-secondary/80 px-1.5 py-0.5 font-mono text-[10px] text-text-muted">J</kbd>
-          <kbd className="rounded border border-border-primary/60 bg-bg-secondary/80 px-1.5 py-0.5 font-mono text-[10px] text-text-muted">K</kbd>
-          <span className="text-text-muted/60">navigate</span>
-          <kbd className="rounded border border-border-primary/60 bg-bg-secondary/80 px-1.5 py-0.5 font-mono text-[10px] text-text-muted">Enter</kbd>
-          <span className="text-text-muted/60">open</span>
+          <kbd className="rounded border border-border-primary/60 bg-bg-secondary/80 px-1.5 py-0.5 font-mono text-xs text-text-muted">J</kbd>
+          <kbd className="rounded border border-border-primary/60 bg-bg-secondary/80 px-1.5 py-0.5 font-mono text-xs text-text-muted">K</kbd>
+          <span className="text-text-muted">navigate</span>
+          <kbd className="rounded border border-border-primary/60 bg-bg-secondary/80 px-1.5 py-0.5 font-mono text-xs text-text-muted">Enter</kbd>
+          <span className="text-text-muted">open</span>
         </span>
       </div>
 
@@ -343,26 +343,26 @@ function ThreadFeedCard({ thread, boardId }: { thread: CatalogThread; boardId: s
     >
       {/* Header bar */}
       <div className="flex flex-wrap items-center gap-2 border-b border-border-primary/40 px-4 py-2.5 bg-bg-secondary/50">
-        <span className="font-mono text-xs font-semibold text-accent">#{thread.num}</span>
+        <span className="font-mono text-sm font-normal text-accent">#{thread.num}</span>
 
         {thread.subject && (
-          <span className="font-display text-sm font-semibold text-text-primary">
+          <span className="font-display text-base font-normal text-text-primary">
             {thread.subject}
           </span>
         )}
 
         {thread.sticky === 1 && (
-          <span className="rounded bg-sticky-badge/20 px-1.5 py-0.5 text-[10px] font-bold text-sticky-badge">
+          <span className="rounded bg-sticky-badge/20 px-1.5 py-0.5 text-sm font-normal text-sticky-badge">
             PIN
           </span>
         )}
         {thread.closed === 1 && (
-          <span className="rounded bg-closed-badge/20 px-1.5 py-0.5 text-[10px] font-bold text-closed-badge">
+          <span className="rounded bg-closed-badge/20 px-1.5 py-0.5 text-sm font-normal text-closed-badge">
             CLOSED
           </span>
         )}
 
-        <div className="ml-auto flex items-center gap-3 text-[11px] text-text-muted">
+        <div className="ml-auto flex items-center gap-3 text-sm text-text-muted">
           <span>{thread.posts_count || 0} posts</span>
           <span>{thread.files_count || 0} files</span>
           {thread.views > 0 && <span>{thread.views.toLocaleString()} views</span>}
@@ -389,12 +389,12 @@ function ThreadFeedCard({ thread, boardId }: { thread: CatalogThread; boardId: s
                 </div>
                 {/* Video duration badge */}
                 {isVideo && file.duration && (
-                  <span className="absolute bottom-1.5 right-1.5 rounded bg-black/70 px-1.5 py-0.5 font-mono text-[10px] text-white">
+                  <span className="absolute bottom-1.5 right-1.5 rounded bg-black/70 px-1.5 py-0.5 font-mono text-xs text-white">
                     {file.duration}
                   </span>
                 )}
                 {/* File info */}
-                <div className="mt-0.5 text-[10px] text-text-muted truncate max-w-[140px]">
+                <div className="mt-0.5 text-xs text-text-muted truncate max-w-[140px]">
                   {formatFileSize(file.size)} · {file.width}x{file.height}
                 </div>
               </div>
@@ -405,7 +405,7 @@ function ThreadFeedCard({ thread, boardId }: { thread: CatalogThread; boardId: s
 
       {/* Comment text */}
       <div className="px-4 py-3">
-        <p className="text-sm leading-relaxed text-text-secondary line-clamp-4">
+        <p className="text-base leading-relaxed text-text-secondary line-clamp-4">
           {commentText}
         </p>
       </div>
@@ -439,7 +439,7 @@ function ThreadGridCard({ thread, boardId }: { thread: CatalogThread; boardId: s
             loading="lazy"
           />
         ) : (
-          <div className="flex h-full w-full items-center justify-center text-2xl text-text-muted/20 font-display font-bold">
+          <div className="flex h-full w-full items-center justify-center text-2xl text-text-muted/20 font-display font-normal">
             /{boardId}/
           </div>
         )}
@@ -447,12 +447,12 @@ function ThreadGridCard({ thread, boardId }: { thread: CatalogThread; boardId: s
         {/* Overlay badges */}
         <div className="absolute left-1.5 top-1.5 flex gap-1">
           {thread.sticky === 1 && (
-            <span className="rounded bg-sticky-badge/90 px-1 py-0.5 text-[10px] font-bold text-white backdrop-blur-sm">
+            <span className="rounded bg-sticky-badge/90 px-1 py-0.5 text-xs font-normal text-white backdrop-blur-sm">
               PIN
             </span>
           )}
           {thread.closed === 1 && (
-            <span className="rounded bg-closed-badge/90 px-1 py-0.5 text-[10px] font-bold text-white backdrop-blur-sm">
+            <span className="rounded bg-closed-badge/90 px-1 py-0.5 text-xs font-normal text-white backdrop-blur-sm">
               CLOSED
             </span>
           )}
@@ -460,7 +460,7 @@ function ThreadGridCard({ thread, boardId }: { thread: CatalogThread; boardId: s
 
         {/* Stats overlay */}
         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent px-2 py-1.5">
-          <div className="flex items-center gap-2 text-[10px] text-white/80">
+          <div className="flex items-center gap-2 text-xs text-white/80">
             <span>{thread.posts_count || 0} posts</span>
             <span>{thread.files_count || 0} files</span>
           </div>
@@ -470,14 +470,14 @@ function ThreadGridCard({ thread, boardId }: { thread: CatalogThread; boardId: s
       {/* Info */}
       <div className="flex-1 p-2">
         {thread.subject && (
-          <h3 className="mb-0.5 text-xs font-semibold text-text-primary line-clamp-1">
+          <h3 className="mb-0.5 text-sm font-normal text-text-primary line-clamp-1">
             {thread.subject}
           </h3>
         )}
-        <p className="text-[11px] leading-snug text-text-secondary line-clamp-2">
+        <p className="text-xs leading-snug text-text-secondary line-clamp-2">
           {commentText}
         </p>
-        <div className="mt-1 text-[10px] text-text-muted">
+        <div className="mt-1 text-xs text-text-muted">
           {formatTimestamp(thread.lasthit)}
         </div>
       </div>

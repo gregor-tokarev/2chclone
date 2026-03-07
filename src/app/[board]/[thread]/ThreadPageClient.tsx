@@ -64,8 +64,7 @@ export default function ThreadPageClient({
 
   const handleReply = useCallback((num: number) => {
     setReplyTo(num);
-    // Scroll to posting form
-    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+    formRef.current?.expand();
   }, []);
 
   const handlePostCreated = useCallback(() => {
@@ -228,7 +227,7 @@ export default function ThreadPageClient({
     <div className="space-y-3">
       {/* Thread controls */}
       <div className="flex items-center gap-3 rounded-lg border border-border-primary bg-bg-card px-4 py-2">
-        <label className="flex items-center gap-2 text-xs text-text-secondary cursor-pointer">
+        <label className="flex items-center gap-2 text-sm text-text-secondary cursor-pointer">
           <input
             type="checkbox"
             checked={autoRefresh}
@@ -242,7 +241,7 @@ export default function ThreadPageClient({
         </label>
 
         {newPostCount > 0 && (
-          <span className="rounded-full bg-accent/10 px-2 py-0.5 text-xs font-medium text-accent">
+          <span className="rounded-full bg-accent/10 px-2 py-0.5 text-sm font-normal text-accent">
             +{newPostCount} new
           </span>
         )}
@@ -254,11 +253,11 @@ export default function ThreadPageClient({
             placeholder="Post #"
             value={jumpToPost}
             onChange={(e) => setJumpToPost(e.target.value)}
-            className="w-20 rounded border border-border-primary bg-bg-input px-2 py-1 text-xs text-text-primary placeholder:text-text-muted focus:border-accent/40 focus:outline-none"
+            className="w-20 rounded border border-border-primary bg-bg-input px-2 py-1 text-sm text-text-primary placeholder:text-text-muted focus:border-accent/40 focus:outline-none"
           />
           <button
             type="submit"
-            className="rounded bg-accent/10 px-2 py-1 text-xs font-medium text-accent transition-colors hover:bg-accent/20"
+            className="rounded bg-accent/10 px-2 py-1 text-sm font-normal text-accent transition-colors hover:bg-accent/20"
           >
             Go
           </button>
@@ -267,7 +266,7 @@ export default function ThreadPageClient({
         <button
           type="button"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="text-xs text-text-secondary hover:text-accent transition-colors"
+          className="text-sm text-text-secondary hover:text-accent transition-colors"
         >
           Back to top
         </button>
@@ -275,7 +274,7 @@ export default function ThreadPageClient({
         <button
           type="button"
           onClick={() => bottomRef.current?.scrollIntoView({ behavior: "smooth" })}
-          className="ml-auto text-xs text-text-secondary hover:text-accent transition-colors"
+          className="ml-auto text-sm text-text-secondary hover:text-accent transition-colors"
         >
           Go to bottom
         </button>

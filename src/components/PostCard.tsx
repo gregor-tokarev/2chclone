@@ -87,28 +87,28 @@ export default function PostCard({
         {/* Post header */}
         <div className={`flex flex-wrap items-center gap-2 border-b border-border-primary/40 px-4 py-2.5 ${isOp ? "bg-gradient-to-r from-accent/10 to-transparent" : ""}`}>
           {isOp && (
-            <span className="rounded bg-op-badge/20 px-1.5 py-0.5 font-mono text-xs font-semibold text-op-badge">
+            <span className="rounded bg-op-badge/20 px-1.5 py-0.5 font-mono text-sm font-normal text-op-badge">
               OP
             </span>
           )}
           {post.sticky === 1 && (
-            <span className="rounded bg-sticky-badge/20 px-1.5 py-0.5 font-mono text-xs font-semibold text-sticky-badge">
+            <span className="rounded bg-sticky-badge/20 px-1.5 py-0.5 font-mono text-sm font-normal text-sticky-badge">
               PIN
             </span>
           )}
           {post.closed === 1 && (
-            <span className="rounded bg-closed-badge/20 px-1.5 py-0.5 font-mono text-xs font-semibold text-closed-badge">
+            <span className="rounded bg-closed-badge/20 px-1.5 py-0.5 font-mono text-sm font-normal text-closed-badge">
               CLOSED
             </span>
           )}
 
-          <span className="font-medium text-text-primary text-sm">
+          <span className="font-normal text-text-primary text-base">
             {post.name || "Anonymous"}
           </span>
 
           {post.trip && (
             <span
-              className="text-xs font-mono text-info"
+              className="text-sm font-mono text-info"
               style={post.trip_style ? { color: post.trip_style } : {}}
             >
               {post.trip}
@@ -116,30 +116,30 @@ export default function PostCard({
           )}
 
           {post.email === "mailto:sage" && (
-            <span className="text-xs font-semibold text-danger">SAGE</span>
+            <span className="text-sm font-normal text-danger">SAGE</span>
           )}
 
           {post.subject && (
-            <span className="font-display text-sm font-semibold text-accent">
+            <span className="font-display text-base font-normal text-accent">
               {post.subject}
             </span>
           )}
 
-          <span className="text-xs text-text-muted">{post.date}</span>
+          <span className="text-sm text-text-muted">{post.date}</span>
 
           <a
             href={`#post-${post.num}`}
-            className="font-mono text-xs text-text-secondary hover:text-accent transition-colors"
+            className="font-mono text-sm text-text-secondary hover:text-accent transition-colors"
           >
             #{post.num}
           </a>
 
           {post.icon && (
-            <span className="text-xs text-text-secondary">{post.icon}</span>
+            <span className="text-sm text-text-secondary">{post.icon}</span>
           )}
 
           {post.tags && (
-            <span className="rounded-full bg-bg-tertiary px-2 py-0.5 text-xs text-text-secondary">
+            <span className="rounded-full bg-bg-tertiary px-2 py-0.5 text-sm text-text-secondary">
               {post.tags}
             </span>
           )}
@@ -152,7 +152,7 @@ export default function PostCard({
             <div className={`mb-3 flex flex-wrap gap-2 ${isOp ? "" : ""}`}>
               {post.files.map((file, idx) => (
                 <div key={file.path} className="group/file relative">
-                  <div className="mb-1 flex items-center gap-1.5 text-xs text-text-secondary">
+                  <div className="mb-1 flex items-center gap-1.5 text-sm text-text-secondary">
                     <span className={`inline-block h-1.5 w-1.5 rounded-full ${isVideo(file.type) ? "bg-info" : "bg-success"}`} />
                     <span className="max-w-[150px] truncate">{file.displayname}</span>
                     <span>({formatFileSize(file.size)}, {file.width}x{file.height})</span>
@@ -180,7 +180,7 @@ export default function PostCard({
                         />
                         {isNsfw(file, idx) ? (
                           <div className="absolute inset-0 flex items-center justify-center bg-black/30">
-                            <span className="rounded bg-danger/80 px-2 py-1 text-xs font-bold text-white">NSFW</span>
+                            <span className="rounded bg-danger/80 px-2 py-1 text-sm font-normal text-white">NSFW</span>
                           </div>
                         ) : (
                           <>
@@ -192,7 +192,7 @@ export default function PostCard({
                               </div>
                             </div>
                             {file.duration && (
-                              <span className="absolute bottom-1.5 right-1.5 rounded bg-black/70 px-1.5 py-0.5 font-mono text-xs text-white">
+                              <span className="absolute bottom-1.5 right-1.5 rounded bg-black/70 px-1.5 py-0.5 font-mono text-sm text-white">
                                 {file.duration}
                               </span>
                             )}
@@ -232,7 +232,7 @@ export default function PostCard({
                         />
                         {isNsfw(file, idx) && (
                           <div className="absolute inset-0 flex items-center justify-center bg-black/30">
-                            <span className="rounded bg-danger/80 px-2 py-1 text-xs font-bold text-white">NSFW</span>
+                            <span className="rounded bg-danger/80 px-2 py-1 text-sm font-normal text-white">NSFW</span>
                           </div>
                         )}
                       </button>
@@ -245,7 +245,7 @@ export default function PostCard({
 
           {/* Comment */}
           <div
-            className="post-comment text-sm leading-relaxed text-text-primary/90"
+            className="post-comment text-base leading-relaxed text-text-primary"
             dangerouslySetInnerHTML={{ __html: post.comment }}
           />
         </div>
@@ -255,14 +255,14 @@ export default function PostCard({
           {onReply && (
             <button
               onClick={() => onReply(post.num)}
-              className="flex items-center gap-1.5 rounded-md px-2 py-1 text-xs font-medium text-text-secondary transition-colors hover:bg-accent-muted hover:text-accent"
+              className="flex items-center gap-1.5 rounded-md px-2 py-1 text-sm font-normal text-text-secondary transition-colors hover:bg-accent-muted hover:text-accent"
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <polyline points="9 17 4 12 9 7" />
                 <path d="M20 18v-2a4 4 0 0 0-4-4H4" />
               </svg>
               Reply
-              <kbd className="ml-1 rounded border border-border-primary/60 bg-bg-secondary/80 px-1 py-px font-mono text-[10px] text-text-muted">R</kbd>
+              <kbd className="ml-1 rounded border border-border-primary/60 bg-bg-secondary/80 px-1 py-px font-mono text-xs text-text-muted">R</kbd>
             </button>
           )}
 
@@ -270,7 +270,7 @@ export default function PostCard({
             <div className="flex items-center gap-2">
               <button
                 onClick={handleLike}
-                className="flex items-center gap-1 rounded-md px-2 py-1 text-xs text-text-secondary transition-colors hover:bg-success/10 hover:text-success"
+                className="flex items-center gap-1 rounded-md px-2 py-1 text-sm text-text-secondary transition-colors hover:bg-success/10 hover:text-success"
               >
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3" />
@@ -279,7 +279,7 @@ export default function PostCard({
               </button>
               <button
                 onClick={handleDislike}
-                className="flex items-center gap-1 rounded-md px-2 py-1 text-xs text-text-secondary transition-colors hover:bg-danger/10 hover:text-danger"
+                className="flex items-center gap-1 rounded-md px-2 py-1 text-sm text-text-secondary transition-colors hover:bg-danger/10 hover:text-danger"
               >
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17" />
@@ -292,18 +292,18 @@ export default function PostCard({
           {onReport && (
             <button
               onClick={() => onReport(post.num)}
-              className="ml-auto rounded-md px-2 py-1 text-xs text-text-muted opacity-0 transition-all hover:bg-danger/10 hover:text-danger group-hover:opacity-100"
+              className="ml-auto rounded-md px-2 py-1 text-sm text-text-muted opacity-0 transition-all hover:bg-danger/10 hover:text-danger group-hover:opacity-100"
             >
               Report
             </button>
           )}
 
           {post.banned === 1 && (
-            <span className="text-xs font-semibold text-danger">USER WAS BANNED</span>
+            <span className="text-sm font-normal text-danger">USER WAS BANNED</span>
           )}
 
           {isOp && post.views > 0 && (
-            <span className="ml-auto text-xs text-text-muted">
+            <span className="ml-auto text-sm text-text-muted">
               {post.views.toLocaleString()} views
             </span>
           )}

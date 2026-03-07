@@ -182,7 +182,7 @@ const PostingForm = forwardRef<PostingFormHandle, PostingFormProps>(function Pos
           setExpanded(true);
           loadCaptcha();
         }}
-        className="w-full rounded-xl border-2 border-dashed border-transparent bg-gradient-to-r from-accent/5 to-transparent p-4 text-center text-sm font-medium text-text-secondary transition-all hover:border-accent/40 hover:bg-accent-muted hover:text-accent"
+        className="w-full rounded-xl border-2 border-dashed border-transparent bg-gradient-to-r from-accent/5 to-transparent p-4 text-center text-base font-normal text-text-secondary transition-all hover:border-accent/40 hover:bg-accent-muted hover:text-accent"
         style={{ borderImage: "linear-gradient(to right, rgba(245,158,11,0.3), rgba(245,158,11,0.05)) 1", borderImageSlice: 1 }}
       >
         <span className="inline-flex items-center gap-2">
@@ -191,7 +191,7 @@ const PostingForm = forwardRef<PostingFormHandle, PostingFormProps>(function Pos
             <line x1="5" y1="12" x2="19" y2="12" />
           </svg>
           {threadNum ? "Write a reply..." : "Create new thread..."}
-          <kbd className="ml-1 rounded border border-accent/30 bg-accent/5 px-1.5 py-0.5 font-mono text-[10px] text-accent/70">{threadNum ? "R" : "N"}</kbd>
+          <kbd className="ml-1 rounded border border-accent/30 bg-accent/5 px-1.5 py-0.5 font-mono text-xs text-accent/70">{threadNum ? "R" : "N"}</kbd>
         </span>
       </button>
     );
@@ -209,13 +209,13 @@ const PostingForm = forwardRef<PostingFormHandle, PostingFormProps>(function Pos
       className="rounded-xl border border-border-primary bg-bg-card overflow-hidden animate-fade-in"
     >
       <div className="border-b border-border-primary/40 px-4 py-3 flex items-center justify-between">
-        <h3 className="font-display text-sm font-semibold text-text-primary">
+        <h3 className="font-display text-base font-normal text-text-primary">
           {threadNum ? "Reply to thread" : "New thread"}
         </h3>
         <button
           type="button"
           onClick={() => setExpanded(false)}
-          className="text-text-muted hover:text-text-primary transition-colors text-sm"
+          className="text-text-muted hover:text-text-primary transition-colors text-base"
         >
           Collapse
         </button>
@@ -230,7 +230,7 @@ const PostingForm = forwardRef<PostingFormHandle, PostingFormProps>(function Pos
               placeholder="Subject"
               value={subject}
               onChange={(e) => setSubject(e.target.value)}
-              className="flex-1 rounded-lg border border-border-primary bg-bg-input px-3 py-2 text-sm text-text-primary placeholder:text-text-muted focus:border-accent/40 focus:outline-none focus:ring-1 focus:ring-accent/20 transition-all"
+              className="flex-1 rounded-lg border border-border-primary bg-bg-input px-3 py-2 text-base text-text-primary placeholder:text-text-muted focus:border-accent/40 focus:outline-none focus:ring-1 focus:ring-accent/20 transition-all"
               maxLength={100}
             />
           )}
@@ -240,7 +240,7 @@ const PostingForm = forwardRef<PostingFormHandle, PostingFormProps>(function Pos
               placeholder="Name"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="flex-1 rounded-lg border border-border-primary bg-bg-input px-3 py-2 text-sm text-text-primary placeholder:text-text-muted focus:border-accent/40 focus:outline-none focus:ring-1 focus:ring-accent/20 transition-all"
+              className="flex-1 rounded-lg border border-border-primary bg-bg-input px-3 py-2 text-base text-text-primary placeholder:text-text-muted focus:border-accent/40 focus:outline-none focus:ring-1 focus:ring-accent/20 transition-all"
             />
           )}
         </div>
@@ -251,7 +251,7 @@ const PostingForm = forwardRef<PostingFormHandle, PostingFormProps>(function Pos
             placeholder="Email / sage"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full rounded-lg border border-border-primary bg-bg-input px-3 py-2 text-sm text-text-primary placeholder:text-text-muted focus:border-accent/40 focus:outline-none focus:ring-1 focus:ring-accent/20 transition-all"
+            className="w-full rounded-lg border border-border-primary bg-bg-input px-3 py-2 text-base text-text-primary placeholder:text-text-muted focus:border-accent/40 focus:outline-none focus:ring-1 focus:ring-accent/20 transition-all"
           />
         )}
 
@@ -268,11 +268,11 @@ const PostingForm = forwardRef<PostingFormHandle, PostingFormProps>(function Pos
               if (form) form.requestSubmit();
             }
           }}
-          className="w-full rounded-lg border border-border-primary bg-bg-input px-3 py-2 text-sm text-text-primary placeholder:text-text-muted focus:border-accent/40 focus:outline-none focus:ring-1 focus:ring-accent/20 transition-all resize-y min-h-[120px]"
+          className="w-full rounded-lg border border-border-primary bg-bg-input px-3 py-2 text-base text-text-primary placeholder:text-text-muted focus:border-accent/40 focus:outline-none focus:ring-1 focus:ring-accent/20 transition-all resize-y min-h-[120px]"
           maxLength={board.max_comment}
         />
-        <div className="flex items-center justify-between text-xs text-text-muted">
-          <span className="text-[11px] text-text-muted">{`Tip: >>number to quote a post`}</span>
+        <div className="flex items-center justify-between text-sm text-text-muted">
+          <span className="text-sm text-text-muted">{`Tip: >>number to quote a post`}</span>
           <span>{comment.length}/{board.max_comment}</span>
         </div>
 
@@ -289,7 +289,7 @@ const PostingForm = forwardRef<PostingFormHandle, PostingFormProps>(function Pos
           <button
             type="button"
             onClick={() => fileInputRef.current?.click()}
-            className="flex items-center gap-2 rounded-lg border border-border-primary px-3 py-2 text-sm text-text-secondary transition-colors hover:border-accent/40 hover:text-accent"
+            className="flex items-center gap-2 rounded-lg border border-border-primary px-3 py-2 text-base text-text-secondary transition-colors hover:border-accent/40 hover:text-accent"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48" />
@@ -302,7 +302,7 @@ const PostingForm = forwardRef<PostingFormHandle, PostingFormProps>(function Pos
               {files.map((file, idx) => (
                 <div
                   key={`${file.name}-${file.size}`}
-                  className="flex items-center gap-2 rounded-lg bg-bg-tertiary px-2 py-1 text-xs text-text-secondary"
+                  className="flex items-center gap-2 rounded-lg bg-bg-tertiary px-2 py-1 text-sm text-text-secondary"
                 >
                   <span className="max-w-[120px] truncate">{file.name}</span>
                   <button
@@ -321,9 +321,9 @@ const PostingForm = forwardRef<PostingFormHandle, PostingFormProps>(function Pos
         {/* Captcha */}
         {!captchaSolved && (
           <div className="space-y-3 rounded-lg border border-border-primary bg-bg-secondary p-4">
-            <div className="text-xs font-medium text-text-secondary">Solve captcha to post</div>
+            <div className="text-sm font-normal text-text-secondary">Solve captcha to post</div>
             {captchaLoading && !captchaImage ? (
-              <div className="flex items-center gap-2 text-sm text-text-muted">
+              <div className="flex items-center gap-2 text-base text-text-muted">
                 <div className="h-4 w-4 animate-spin rounded-full border-2 border-accent border-t-transparent" />
                 Loading captcha...
               </div>
@@ -365,7 +365,7 @@ const PostingForm = forwardRef<PostingFormHandle, PostingFormProps>(function Pos
               <button
                 type="button"
                 onClick={loadCaptcha}
-                className="rounded-lg bg-accent/10 px-3 py-2 text-sm font-medium text-accent transition-colors hover:bg-accent/20"
+                className="rounded-lg bg-accent/10 px-3 py-2 text-base font-normal text-accent transition-colors hover:bg-accent/20"
               >
                 Load captcha
               </button>
@@ -374,7 +374,7 @@ const PostingForm = forwardRef<PostingFormHandle, PostingFormProps>(function Pos
         )}
 
         {captchaSolved && (
-          <div className="flex items-center gap-2 rounded-lg bg-success/10 px-3 py-2 text-sm text-success">
+          <div className="flex items-center gap-2 rounded-lg bg-success/10 px-3 py-2 text-base text-success">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <polyline points="20 6 9 17 4 12" />
             </svg>
@@ -384,17 +384,17 @@ const PostingForm = forwardRef<PostingFormHandle, PostingFormProps>(function Pos
 
         {/* Error / Success */}
         {error && (
-          <div className="rounded-lg bg-danger/10 px-3 py-2 text-sm text-danger">{error}</div>
+          <div className="rounded-lg bg-danger/10 px-3 py-2 text-base text-danger">{error}</div>
         )}
         {success && (
-          <div className="rounded-lg bg-success/10 px-3 py-2 text-sm text-success">{success}</div>
+          <div className="rounded-lg bg-success/10 px-3 py-2 text-base text-success">{success}</div>
         )}
 
         {/* Submit */}
         <button
           type="submit"
           disabled={isSubmitting || (!captchaSolved)}
-          className="w-full rounded-lg bg-accent py-2.5 text-sm font-semibold text-bg-primary transition-all hover:bg-accent-hover disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full rounded-lg bg-accent py-2.5 text-base font-normal text-bg-primary transition-all hover:bg-accent-hover disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isSubmitting ? (
             <span className="flex items-center justify-center gap-2">
@@ -404,7 +404,7 @@ const PostingForm = forwardRef<PostingFormHandle, PostingFormProps>(function Pos
           ) : (
             <span className="inline-flex items-center justify-center gap-2">
               {threadNum ? "Post Reply" : "Create Thread"}
-              <kbd className="rounded border border-bg-primary/20 bg-bg-primary/10 px-1.5 py-0.5 font-mono text-[10px]">Ctrl+Enter</kbd>
+              <kbd className="rounded border border-bg-primary/20 bg-bg-primary/10 px-1.5 py-0.5 font-mono text-xs">Ctrl+Enter</kbd>
             </span>
           )}
         </button>
