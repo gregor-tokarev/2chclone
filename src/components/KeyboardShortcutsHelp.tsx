@@ -17,6 +17,7 @@ const SHORTCUTS: Shortcut[] = [
   { keys: "r", description: "Reply to selected post / open reply form", scope: "Thread" },
   { keys: "Esc", description: "Close dialog / deselect", scope: "Global" },
   { keys: "?", description: "Show this help", scope: "Global" },
+  { keys: "⌘K / Ctrl+K", description: "Open command palette / search boards", scope: "Global" },
 ];
 
 export default function KeyboardShortcutsHelp() {
