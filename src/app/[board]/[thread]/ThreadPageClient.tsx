@@ -53,6 +53,26 @@ export default function ThreadPageClient({
     return () => clearInterval(interval);
   }, [autoRefresh, boardId, threadNum, posts]);
 
+  // Scroll to #post-{n} after load/hash change
+  useEffect(() => {
+    const scrollToHash = () => {
+      const hash = window.location.hash;
+      const m = hash.match(/^#post-(\d+)$/) || hash.match(/^#(\d+)$/);
+      if (!m) return;
+      const el = document.getElementById(`post-${m[1]}`);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    };
+    // wait one frame so posts are in the DOM
+    const id = window.requestAnimationFrame(scrollToHash);
+    window.addEventListener("hashchange", scrollToHash);
+    return () => {
+      window.cancelAnimationFrame(id);
+      window.removeEventListener("hashchange", scrollToHash);
+    };
+  }, [posts.length]);
+
   // Scroll-to-top button visibility
   useEffect(() => {
     const handleScroll = () => {

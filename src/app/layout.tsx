@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import KeyboardShortcutsHelp from "@/components/KeyboardShortcutsHelp";
 import CommandPalette from "@/components/CommandPalette";
+import PostLinkHandler from "@/components/PostLinkHandler";
 
 export const metadata: Metadata = {
   title: "dvач - Modern Imageboard",
@@ -25,6 +26,7 @@ export default function RootLayout({
         <Footer />
         <KeyboardShortcutsHelp />
         <CommandPalette />
+        <PostLinkHandler />
       </body>
     </html>
   );
