@@ -10,9 +10,9 @@
   --color-bg-input: #0d0d14;
   --color-border-primary: #1e1e2e;
   --color-border-accent: #f59e0b;
-  --color-text-primary: #e8e6e3;
-  --color-text-secondary: #a0a0b4;
-  --color-text-muted: #7c7c90;
+  --color-text-primary: #f7f6f4;
+  --color-text-secondary: #c8c8d8;
+  --color-text-muted: #9a9ab0;
   --color-accent: #f59e0b;
   --color-accent-hover: #fbbf24;
   --color-accent-muted: rgba(245, 158, 11, 0.15);
@@ -53,6 +53,7 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: 17px;
 }
 
 body {
