@@ -32,7 +32,6 @@ export default function PostCard({
   const [mediaViewerOpen, setMediaViewerOpen] = useState(false);
   const [mediaIndex, setMediaIndex] = useState(0);
   const [expandedFiles, setExpandedFiles] = useState<Set<number>>(new Set());
-  const [revealedNsfw, setRevealedNsfw] = useState<Set<number>>(new Set());
 
   const handleLike = useCallback(async () => {
     try {
@@ -56,18 +55,6 @@ export default function PostCard({
       return next;
     });
   };
-
-  const toggleNsfwReveal = (idx: number) => {
-    setRevealedNsfw((prev) => {
-      const next = new Set(prev);
-      if (next.has(idx)) next.delete(idx);
-      else next.add(idx);
-      return next;
-    });
-  };
-
-  const isNsfw = (file: { nsfw?: number | null }, idx: number) =>
-    typeof file.nsfw === "number" && file.nsfw > 0 && !revealedNsfw.has(idx);
 
   const isVideo = (type: number) => type === 6 || type === 10;
   const isImage = (type: number) => type >= 1 && type <= 5;
@@ -167,7 +154,7 @@ export default function PostCard({
                       />
                     ) : (
                       <button
-                        onClick={() => isNsfw(file, idx) ? toggleNsfwReveal(idx) : toggleFileExpand(idx)}
+                        onClick={() => toggleFileExpand(idx)}
                         className="relative cursor-pointer overflow-hidden rounded-lg border border-border-primary/40 transition-all hover:border-accent/40"
                       >
                         <img
@@ -175,28 +162,20 @@ export default function PostCard({
                           alt=""
                           width={file.tn_width}
                           height={file.tn_height}
-                          className={`max-h-[200px] object-cover transition-all duration-300 ${isNsfw(file, idx) ? "blur-xl scale-110" : ""}`}
+                          className="max-h-[200px] object-cover transition-all duration-300"
                           loading="lazy"
                         />
-                        {isNsfw(file, idx) ? (
-                          <div className="absolute inset-0 flex items-center justify-center bg-black/30">
-                            <span className="rounded bg-danger/80 px-2 py-1 text-sm font-normal text-white">NSFW</span>
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/40">
+                          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
+                              <polygon points="5,3 19,12 5,21" />
+                            </svg>
                           </div>
-                        ) : (
-                          <>
-                            <div className="absolute inset-0 flex items-center justify-center bg-black/40">
-                              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
-                                  <polygon points="5,3 19,12 5,21" />
-                                </svg>
-                              </div>
-                            </div>
-                            {file.duration && (
-                              <span className="absolute bottom-1.5 right-1.5 rounded bg-black/70 px-1.5 py-0.5 font-mono text-sm text-white">
-                                {file.duration}
-                              </span>
-                            )}
-                          </>
+                        </div>
+                        {file.duration && (
+                          <span className="absolute bottom-1.5 right-1.5 rounded bg-black/70 px-1.5 py-0.5 font-mono text-sm text-white">
+                            {file.duration}
+                          </span>
                         )}
                       </button>
                     )
@@ -213,12 +192,8 @@ export default function PostCard({
                     ) : (
                       <button
                         onClick={() => {
-                          if (isNsfw(file, idx)) {
-                            toggleNsfwReveal(idx);
-                          } else {
-                            setMediaIndex(idx);
-                            setMediaViewerOpen(true);
-                          }
+                          setMediaIndex(idx);
+                          setMediaViewerOpen(true);
                         }}
                         className="relative cursor-pointer overflow-hidden rounded-lg border border-border-primary/40 transition-all hover:border-accent/40 hover:shadow-lg hover:shadow-accent/5"
                       >
@@ -227,14 +202,9 @@ export default function PostCard({
                           alt=""
                           width={file.tn_width}
                           height={file.tn_height}
-                          className={`max-h-[200px] object-cover transition-all duration-300 group-hover/file:scale-[1.02] ${isNsfw(file, idx) ? "blur-xl scale-110" : ""}`}
+                          className="max-h-[200px] object-cover transition-all duration-300 group-hover/file:scale-[1.02]"
                           loading="lazy"
                         />
-                        {isNsfw(file, idx) && (
-                          <div className="absolute inset-0 flex items-center justify-center bg-black/30">
-                            <span className="rounded bg-danger/80 px-2 py-1 text-sm font-normal text-white">NSFW</span>
-                          </div>
-                        )}
                       </button>
                     )
                   ) : null}
