@@ -66,8 +66,8 @@ export default function PostCard({
     });
   };
 
-  const isNsfw = (file: { nsfw?: number }, idx: number) =>
-    file.nsfw !== undefined && file.nsfw >= 0 && !revealedNsfw.has(idx);
+  const isNsfw = (file: { nsfw?: number | null }, idx: number) =>
+    typeof file.nsfw === "number" && file.nsfw > 0 && !revealedNsfw.has(idx);
 
   const isVideo = (type: number) => type === 6 || type === 10;
   const isImage = (type: number) => type >= 1 && type <= 5;
