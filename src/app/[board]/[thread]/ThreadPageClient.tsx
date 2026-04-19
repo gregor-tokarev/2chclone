@@ -187,6 +187,7 @@ export default function ThreadPageClient({
       const tag = (e.target as HTMLElement)?.tagName;
       if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
       if ((e.target as HTMLElement)?.isContentEditable) return;
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
 
       if (e.key === "j") {
         e.preventDefault();
